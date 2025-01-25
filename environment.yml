@@ -1,0 +1,21 @@
+name: venv
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - joblib=1.1.0
+  - matplotlib-base=3.5.1
+  - pandas=1.2.3
+  - pip=21.3
+  - python=3.9.7
+  - pytorch=1.9.1
+  - pytorch-lightning=1.6.3
+  - scikit-learn=0.24.1
+  - scipy=1.6.1
+  - setuptools=58.2.0
+  - pip:
+    - dowel==0.0.3
+    - gym==0.26.2
+    - matplotlib==3.4.3
+    - numpy==1.20.1
+    - seaborn==0.11.2
