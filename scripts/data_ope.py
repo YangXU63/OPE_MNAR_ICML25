@@ -274,7 +274,7 @@ if __name__ == '__main__':
     # print(f'dropout_obs_count_thres: {dropout_obs_count_thres}')
 
     ########################################################################
-    ##                    some data process
+    ##                    some data processing
     ########################################################################
     dropout_col_name = 'custom_dropout'
     traj_df[dropout_col_name] = 0
@@ -297,117 +297,6 @@ if __name__ == '__main__':
             # c4 = -1.5
             # dropout_prob = 1 / (1 + np.exp(4.5 + c1 * I1[:-1] + c2 * I2[:-1] + c3 * I3[:-1] + c4 * I4[1:]))
             
-            # # discharge - model 1:
-            # SpO2 = rows['SpO2'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # SOFA = rows['SOFA'].values
-            # c0 = 2 # 0.1
-            # c1 = 0.01
-            # c2 = 0.002
-            # c3 = 0.004
-            # c4 = -0.12
-            # dropout_prob = 1 / (1 + np.exp(c0 + c1 * SpO2[:-1] + c2 * HR[:-1] + c3 * RR[:-1] + c4 * SOFA[1:]))
-            # rows['custom_dropout_prob'] = np.append(dropout_prob, None)
-
-            # # discharge - model 3:
-            # SpO2 = rows['SpO2'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # Arterial_lactate = rows['Arterial_lactate'].values
-            # c0 = 0.1
-            # c1 = 0.01
-            # c2 = 0.002
-            # c3 = 0.004
-            # c4 = 0.1
-            # dropout_prob = 1 / (1 + np.exp(c0 + c1 * SpO2[:-1] + c2 * HR[:-1] + c3 * RR[:-1] + c4 * Arterial_lactate[1:]))
-
-            # # discharge - model 4:
-            # SpO2 = rows['SpO2'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # GCS = rows['GCS'].values
-            # c0 = 0.1
-            # c1 = 0.01
-            # c2 = 0.002
-            # c3 = 0.004
-            # c4 = -0.1
-            # dropout_prob = 1 / (1 + np.exp(c0 + c1 * SpO2[:-1] + c2 * HR[:-1] + c3 * RR[:-1] + c4 * GCS[1:]))
-
-            # # discharge - model 6:
-            # SpO2 = rows['SpO2'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # reward = rows[reward_col].values
-            # c0 = 4 # 0.1
-            # c1 = -0.02
-            # c2 = 0.002
-            # c3 = -0.02
-            # c4 = 0.4
-            # dropout_prob = 1 / (1 + np.exp(c0 + c1 * SpO2[:-1] + c2 * HR[:-1] + c3 * RR[:-1] + c4 * reward[:-1]))
-            # rows['custom_dropout_prob'] = np.append(dropout_prob, None)
-
-            # # discharge - model 7:
-            # FiO2 = rows['FiO2_1'].values
-            # HR = rows['HR'].values
-            # GCS = rows['GCS'].values
-            # SOFA = rows['SOFA'].values
-            # I1 = 1 * (FiO2 <= 0.6)
-            # I2 = 1 * np.logical_and(HR >= 60, HR <= 100)
-            # I3 = 1 * (GCS >= 14)
-            # I4 = 1 * (SOFA > 12)
-            # c1 = -0.5
-            # c2 = -0.5
-            # c3 = -0.5
-            # c4 = 0.5
-            # dropout_prob = 1 / (1 + np.exp(4 + c1 * I1[:-1] + c2 * I2[:-1] + c3 * I3[:-1] + c4 * I4[1:]))
-
-            # # discharge - model 8:
-            # FiO2 = rows['FiO2_1'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # GCS = rows['GCS'].values
-            # mechvent = rows['mechvent'].values
-            # I1 = 1 * (FiO2 <= 0.6)
-            # I2 = 1 * np.logical_and(HR >= 60, HR <= 100)
-            # I3 = 1 * np.logical_and(RR >= 10, RR <= 30) # mechvent
-            # I4 = GCS
-            # c1 = -0.5
-            # c2 = -0.5
-            # c3 = -0.2 # 3.5
-            # c4 = -0.1
-            # dropout_prob = 1 / (1 + np.exp(4.5 + c1 * I1[:-1] + c2 * I2[:-1] + c3 * I3[:-1] + c4 * I4[1:]))
-
-            # # discharge - model 8*:
-            # FiO2 = rows['FiO2_1'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # GCS = rows['GCS'].values
-            # mechvent = rows['mechvent'].values
-            # I1 = 1 * (FiO2 <= 0.6)
-            # I2 = 1 * np.logical_and(HR >= 60, HR <= 100)
-            # I3 = 1 * np.logical_and(RR >= 10, RR <= 30) # mechvent
-            # I4 = 1 * (GCS >= 14)
-            # c1 = -0.5
-            # c2 = -0.5
-            # c3 = -0.2 # 3.5
-            # c4 = -1.5
-            # dropout_prob = 1 / (1 + np.exp(5 + c1 * I1[:-1] + c2 * I2[:-1] + c3 * I3[:-1] + c4 * I4[1:]))
-
-            # # discharge - model 9:
-            # FiO2 = rows['FiO2_1'].values
-            # HR = rows['HR'].values
-            # RR = rows['RR'].values
-            # GCS = rows['GCS'].values
-            # I1 = 1 * (GCS >= 14)
-            # I2 = 1 * np.logical_and(HR >= 60, HR <= 100)
-            # I3 = 1 * np.logical_and(RR >= 10, RR <= 30) # mechvent
-            # I4 = FiO2
-            # c1 = -0.5
-            # c2 = -0.5
-            # c3 = -0.2 # 3.5
-            # c4 = 1
-            # dropout_prob = 1 / (1 + np.exp(3.5 + c1 * I1[:-1] + c2 * I2[:-1] + c3 * I3[:-1] + c4 * I4[1:]))
 
             # # mortality - model 1:
             # SpO2 = rows['SpO2'].values
