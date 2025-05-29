@@ -1,11 +1,6 @@
 # Off-Policy Evaluation under Nonignorable Monotone Missingness  
 
-This repository contains the official implementation for the ICML 2025 submission **"Off-Policy Evaluation under Nonignorable Monotone Missingness."** It includes the technical appendix and code for simulations and synthetic data analysis using MIMIC-III, supporting the figures in the paper.  
-
-## Overview  
-
-- **Paper:** "Off-Policy Evaluation under Nonignorable Monotone Missingness"  
-- **Conference:** ICML 2025  
+This repository contains the official implementation for the ICML 2025 accepted paper **"Off-Policy Evaluation under Nonignorable Monotone Missingness."** It includes the technical appendix and code for simulations and synthetic data analysis using MIMIC-III, supporting the figures in the paper.  
   
 ## Repository Structure  
 
